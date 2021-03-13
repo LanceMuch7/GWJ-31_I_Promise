@@ -14,3 +14,8 @@ enum Cursor {
 	Talk,
 	Wait,
 }
+
+enum scene {
+	Splash,
+	Title,
+}

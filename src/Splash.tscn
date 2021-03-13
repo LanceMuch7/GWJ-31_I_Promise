@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fonts/VerdannaI_24.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/Splash.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://Images/Gifthammer_Clear_300.png" type="Texture" id=4]
 [ext_resource path="res://Images/Sprites/paper.png" type="Texture" id=5]
 [ext_resource path="res://fonts/VerdannaB_24.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Images/theme.png" type="Texture" id=7]
+[ext_resource path="res://Images/wc_oregano.png" type="Texture" id=8]
+[ext_resource path="res://Images/wc_ddmoose.png" type="Texture" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "GHG_Splash"
@@ -17,8 +20,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1, 2, 3, 4.1, 6, 7 )
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2, 2.5, 3.5, 4, 4.5, 6.5, 7 )
 }
 tracks/1/type = "bezier"
 tracks/1/path = NodePath("container:modulate:g")
@@ -27,8 +30,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1, 2, 3, 4.1, 6, 7 )
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2, 2.5, 3.5, 4, 4.5, 6.5, 7 )
 }
 tracks/2/type = "bezier"
 tracks/2/path = NodePath("container:modulate:b")
@@ -37,54 +40,56 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1, 2, 3, 4.1, 6, 7 )
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2, 2.5, 3.5, 4, 4.5, 6.5, 7 )
 }
-tracks/3/type = "bezier"
-tracks/3/path = NodePath("container:modulate:a")
+tracks/3/type = "value"
+tracks/3/path = NodePath("container/GHG:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1, 2, 3, 4.1, 6, 7 )
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("container/GHG:visible")
+tracks/4/path = NodePath("container/Game:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 3 ),
+"times": PoolRealArray( 0, 4.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ false, true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("container/Game:visible")
+tracks/5/path = NodePath("container/Game/Title2:percent_visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 3.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
+"times": PoolRealArray( 0, 4.6, 6.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("container/Game/Title2:percent_visible")
+tracks/6/path = NodePath("container/GWJ:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 3.7, 6.7 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.0 ]
+"times": PoolRealArray( 0, 2.1, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
 }
 
 [node name="Control" type="Control"]
@@ -94,7 +99,6 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-next_scene = null
 
 [node name="container" type="Panel" parent="."]
 modulate = Color( 0, 0, 0, 1 )
@@ -142,6 +146,71 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GWJ" type="VBoxContainer" parent="container"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -350.0
+margin_top = -297.5
+margin_right = 350.0
+margin_bottom = 297.5
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="RichTextLabel" parent="container/GWJ"]
+margin_right = 700.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 200, 30 )
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[center]Made for GWJ #31[/center]"
+text = "Made for GWJ #31"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="TextureRect" parent="container/GWJ"]
+margin_top = 34.0
+margin_right = 700.0
+margin_bottom = 341.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="container/GWJ"]
+margin_top = 345.0
+margin_right = 700.0
+margin_bottom = 595.0
+custom_constants/separation = 50
+alignment = 1
+
+[node name="oreg" type="TextureRect" parent="container/GWJ/HBox"]
+margin_left = 145.0
+margin_right = 325.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 180, 250 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+
+[node name="ddm" type="TextureRect" parent="container/GWJ/HBox"]
+margin_left = 375.0
+margin_right = 555.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 180, 250 )
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
 
 [node name="Game" type="VBoxContainer" parent="container"]
 visible = false
@@ -195,7 +264,7 @@ rect_min_size = Vector2( 400, 100 )
 custom_fonts/normal_font = ExtResource( 3 )
 visible_characters = 0
 percent_visible = 0.0
-text = "Oops! So sorry, ust give me a sec to find it... I know I last saw it over..."
+text = "Oops! So sorry, just give me a sec to find it. I know I last saw the files  somewhere over..."
 scroll_active = false
 
 [node name="AnimPlayer" type="AnimationPlayer" parent="."]

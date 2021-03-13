@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GWJ #31 - I Promise"
+run/main_scene="res://src/Splash.tscn"
 boot_splash/image="res://Images/Sprites/paper.png"
 boot_splash/fullsize=false
 config/icon="res://Images/Sprites/paper.png"
@@ -23,6 +24,7 @@ config/icon="res://Images/Sprites/paper.png"
 [autoload]
 
 Enums="*res://src/Enums.gd"
+GameState="*res://src/GameState.gd"
 
 [rendering]
 

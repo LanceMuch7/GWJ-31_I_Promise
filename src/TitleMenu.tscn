@@ -1,0 +1,160 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://fonts/VerdannaB_24.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/Verdanna_48.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Images/Sprites/battle.png" type="Texture" id=3]
+[ext_resource path="res://Images/Sprites/clock.png" type="Texture" id=4]
+[ext_resource path="res://Images/Sprites/shop.png" type="Texture" id=5]
+[ext_resource path="res://Images/Sprites/door.png" type="Texture" id=6]
+[ext_resource path="res://Images/Sprites/save.png" type="Texture" id=7]
+[ext_resource path="res://Images/Sprites/talk.png" type="Texture" id=8]
+[ext_resource path="res://src/TitleMenu.gd" type="Script" id=9]
+
+[node name="TitleMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="RichTextLabel" parent="VBox"]
+margin_right = 1024.0
+margin_bottom = 61.0
+custom_fonts/bold_font = ExtResource( 1 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]I Promise[/center]"
+text = "I Promise"
+fit_content_height = true
+
+[node name="Divide" type="HBoxContainer" parent="VBox"]
+margin_top = 65.0
+margin_right = 1024.0
+margin_bottom = 415.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+
+[node name="Buttons" type="VBoxContainer" parent="VBox/Divide"]
+margin_right = 150.0
+margin_bottom = 350.0
+custom_constants/separation = 10
+
+[node name="NewGame" type="Button" parent="VBox/Divide/Buttons"]
+margin_right = 150.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 150, 50 )
+size_flags_horizontal = 3
+disabled = true
+text = "NEW GAME"
+icon = ExtResource( 3 )
+
+[node name="LoadGame" type="Button" parent="VBox/Divide/Buttons"]
+margin_top = 60.0
+margin_right = 150.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 150, 50 )
+size_flags_horizontal = 3
+disabled = true
+text = "LOAD"
+icon = ExtResource( 7 )
+
+[node name="Settings" type="Button" parent="VBox/Divide/Buttons"]
+margin_top = 120.0
+margin_right = 150.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 150, 50 )
+size_flags_horizontal = 3
+disabled = true
+text = "SETTINGS"
+icon = ExtResource( 4 )
+
+[node name="About" type="Button" parent="VBox/Divide/Buttons"]
+margin_top = 180.0
+margin_right = 150.0
+margin_bottom = 230.0
+rect_min_size = Vector2( 150, 50 )
+size_flags_horizontal = 3
+disabled = true
+text = "ABOUT"
+icon = ExtResource( 8 )
+
+[node name="Store" type="Button" parent="VBox/Divide/Buttons"]
+margin_top = 240.0
+margin_right = 150.0
+margin_bottom = 290.0
+rect_min_size = Vector2( 150, 50 )
+size_flags_horizontal = 3
+disabled = true
+text = "MARKETPLACE"
+icon = ExtResource( 5 )
+
+[node name="Exit" type="Button" parent="VBox/Divide/Buttons"]
+margin_top = 300.0
+margin_right = 150.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 150, 50 )
+size_flags_horizontal = 3
+button_mask = 2
+text = "EXIT"
+icon = ExtResource( 6 )
+
+[node name="Files" type="PanelContainer" parent="VBox/Divide"]
+visible = false
+margin_left = 170.0
+margin_right = 1024.0
+margin_bottom = 516.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Settings" type="PanelContainer" parent="VBox/Divide"]
+margin_left = 170.0
+margin_right = 1024.0
+margin_bottom = 350.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="About" type="PanelContainer" parent="VBox/Divide"]
+visible = false
+margin_left = 170.0
+margin_right = 1024.0
+margin_bottom = 516.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Market" type="PanelContainer" parent="VBox/Divide"]
+visible = false
+margin_left = 170.0
+margin_right = 1024.0
+margin_bottom = 516.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ExitConfirm" type="PanelContainer" parent="VBox/Divide"]
+visible = false
+margin_left = 170.0
+margin_right = 1024.0
+margin_bottom = 516.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Empty" type="Control" parent="VBox"]
+margin_top = 419.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+[connection signal="pressed" from="VBox/Divide/Buttons/NewGame" to="." method="_onNewGame"]
+[connection signal="pressed" from="VBox/Divide/Buttons/LoadGame" to="." method="_onLoadGame"]
+[connection signal="pressed" from="VBox/Divide/Buttons/Settings" to="." method="_onSettings"]
+[connection signal="pressed" from="VBox/Divide/Buttons/About" to="." method="_onAbout"]
+[connection signal="pressed" from="VBox/Divide/Buttons/Store" to="." method="_onStore"]
+[connection signal="pressed" from="VBox/Divide/Buttons/Exit" to="." method="_onExit"]
