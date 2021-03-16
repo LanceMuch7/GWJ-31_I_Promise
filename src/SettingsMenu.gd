@@ -1,26 +1,29 @@
 extends PanelContainer
 
-var gameList = {
-	"Fullscreen": ["Fullscreen/HBox", "pressed", "_onSetFullscreen"],
-	"Audio": ["Audio/HBox", "pressed", "_onDefaultInput"],
-	"Volume": ["Volume/HBox", "value_changed", "_onDefaultSlide"],
-	"FontSize": ["FontSize/HBox", "value_changed", "_onDefaultSlide"],
-}
-# @TODO: MORE LISTS
+signal ButtonToggled
 
 
 func _ready():
-	# @TODO: INITIALIZE OPTIONS
-	# Setup signals
-	for option in $Container/List.get_children():
-		if gameList.has(option.name):
-			var data = gameList[option.name]
-			
-			option.get_node("HBox/Label").text = option.name
-			option.get_node("HBox/Button").connect(data[1], self, data[2], [option.get_node("HBox/Button")])
-	
+	pass
 	# @TODO: FIX ALL $ REFERENCES
 	# Initialize option values
-	if OS.window_fullscreen:
-		$Main/List/Fullscreen/HBox/Button.pressed = true
-	$Container/List/FontSize/HBox/Button.set_suffix("px")
+
+
+func _emit(prop, pressed):
+	var btn = get_parent().get_node("Buttons/"+prop)
+	
+	btn.disabled = not pressed
+#	emit_signal("ButtonToggled", prop, pressed)
+
+
+func _onMarketToggled(button_pressed):
+	_emit("Store", button_pressed)
+
+func _onAboutToggled(button_pressed):
+	_emit("About", button_pressed)
+
+func _onExtToggled(button_pressed):
+	_emit("Exit", button_pressed)
+
+func _onLoadToggled(button_pressed):
+	_emit("LoadGame", button_pressed)

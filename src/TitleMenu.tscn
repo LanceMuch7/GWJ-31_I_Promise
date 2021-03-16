@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Images/Sprites/paper.png" type="Texture" id=1]
 [ext_resource path="res://fonts/Verdanna_48.tres" type="DynamicFont" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://fonts/VerdannaB_14.tres" type="DynamicFont" id=12]
 [ext_resource path="res://fonts/Verdanna_14.tres" type="DynamicFont" id=13]
 [ext_resource path="res://src/SettingsMenu.gd" type="Script" id=14]
+[ext_resource path="res://src/InputTypes/Slider.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/InputTypes/Switch.tscn" type="PackedScene" id=16]
 
 [node name="TitleMenu" type="Control"]
 anchor_right = 1.0
@@ -150,7 +152,6 @@ __meta__ = {
 }
 
 [node name="About" parent="Bg/VBox/Divide" instance=ExtResource( 11 )]
-visible = false
 
 [node name="Title" parent="Bg/VBox/Divide/About/Main" index="0"]
 text = "About Me"
@@ -166,6 +167,18 @@ custom_fonts/italics_font = ExtResource( 10 )
 custom_fonts/bold_font = ExtResource( 12 )
 custom_fonts/normal_font = ExtResource( 13 )
 bbcode_enabled = true
+bbcode_text = "[img]Images/Gifthammer_Clear_64.png[/img]
+Thanks for playing [i]I Promise[/i]! I hope you enjoy it, this project took a lot of work to get done on time. 
+
+I am an independent developer trying to create a variety of games that all feed into a singular story universe: The Humanity Saga. It is a science-fantasy world set in the distant future. I hope you choose to stick around and see what I add to the Saga next!
+
+Growing up, I quickly learned one thing: of something isn't quite right, a stout handful of Oregano will always make it better. It even saved my life once. "
+text = "
+Thanks for playing I Promise! I hope you enjoy it, this project took a lot of work to get done on time. 
+
+I am an independent developer trying to create a variety of games that all feed into a singular story universe: The Humanity Saga. It is a science-fantasy world set in the distant future. I hope you choose to stick around and see what I add to the Saga next!
+
+Growing up, I quickly learned one thing: of something isn't quite right, a stout handful of Oregano will always make it better. It even saved my life once. "
 
 [node name="ExitConfirm" type="Control" parent="Bg/VBox/Divide"]
 visible = false
@@ -183,6 +196,7 @@ text = "LOAD SAVED GAME"
 uppercase = false
 
 [node name="Button" type="Button" parent="Bg/VBox/Divide/Files/Main" index="2"]
+visible = false
 margin_left = 269.0
 margin_top = 43.0
 margin_right = 569.0
@@ -265,6 +279,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Settings" parent="Bg/VBox/Divide" instance=ExtResource( 11 )]
+visible = false
 script = ExtResource( 14 )
 
 [node name="Title" parent="Bg/VBox/Divide/Settings/Main" index="0"]
@@ -301,6 +316,47 @@ mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Label" type="Label" parent="Bg/VBox/Divide/Settings/Main/Tabs/Audio"]
+margin_right = 831.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 10 )
+text = "Volume"
+
+[node name="VolMaster" parent="Bg/VBox/Divide/Settings/Main/Tabs/Audio" instance=ExtResource( 15 )]
+margin_top = 22.0
+margin_right = 831.0
+margin_bottom = 52.0
+
+[node name="Button" parent="Bg/VBox/Divide/Settings/Main/Tabs/Audio/VolMaster/HBox" index="0"]
+value = 50.0
+
+[node name="Label" parent="Bg/VBox/Divide/Settings/Main/Tabs/Audio/VolMaster/HBox" index="1"]
+margin_right = 831.0
+text = "Master"
+
+[node name="VolMusic" parent="Bg/VBox/Divide/Settings/Main/Tabs/Audio" instance=ExtResource( 15 )]
+margin_top = 56.0
+margin_right = 831.0
+margin_bottom = 86.0
+
+[node name="Button" parent="Bg/VBox/Divide/Settings/Main/Tabs/Audio/VolMusic/HBox" index="0"]
+value = 50.0
+
+[node name="Label" parent="Bg/VBox/Divide/Settings/Main/Tabs/Audio/VolMusic/HBox" index="1"]
+margin_right = 831.0
+text = "Music"
+
+[node name="VolFX" parent="Bg/VBox/Divide/Settings/Main/Tabs/Audio" instance=ExtResource( 15 )]
+margin_top = 90.0
+margin_right = 831.0
+margin_bottom = 120.0
+
+[node name="Button" parent="Bg/VBox/Divide/Settings/Main/Tabs/Audio/VolFX/HBox" index="0"]
+value = 50.0
+
+[node name="Label" parent="Bg/VBox/Divide/Settings/Main/Tabs/Audio/VolFX/HBox" index="1"]
+text = "Sound Effects"
+
 [node name="Display" type="VBoxContainer" parent="Bg/VBox/Divide/Settings/Main/Tabs"]
 visible = false
 anchor_right = 1.0
@@ -324,6 +380,51 @@ margin_bottom = -4.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Bg/VBox/Divide/Settings/Main/Tabs/Misc"]
+margin_right = 831.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 10 )
+text = "Enable Menus"
+
+[node name="ToggleLoad" parent="Bg/VBox/Divide/Settings/Main/Tabs/Misc" instance=ExtResource( 16 )]
+margin_top = 22.0
+margin_right = 831.0
+margin_bottom = 62.0
+
+[node name="Label" parent="Bg/VBox/Divide/Settings/Main/Tabs/Misc/ToggleLoad/HBox" index="1"]
+margin_right = 831.0
+text = "Load Game"
+
+[node name="ToggleAbout" parent="Bg/VBox/Divide/Settings/Main/Tabs/Misc" instance=ExtResource( 16 )]
+margin_top = 66.0
+margin_right = 831.0
+margin_bottom = 106.0
+
+[node name="Label" parent="Bg/VBox/Divide/Settings/Main/Tabs/Misc/ToggleAbout/HBox" index="1"]
+margin_right = 831.0
+text = "About Me"
+
+[node name="ToggleMarket" parent="Bg/VBox/Divide/Settings/Main/Tabs/Misc" instance=ExtResource( 16 )]
+margin_top = 110.0
+margin_right = 831.0
+margin_bottom = 150.0
+
+[node name="Label" parent="Bg/VBox/Divide/Settings/Main/Tabs/Misc/ToggleMarket/HBox" index="1"]
+margin_right = 831.0
+text = "Marketplace"
+
+[node name="ToggleExit" parent="Bg/VBox/Divide/Settings/Main/Tabs/Misc" instance=ExtResource( 16 )]
+margin_top = 154.0
+margin_right = 831.0
+margin_bottom = 194.0
+
+[node name="Button" parent="Bg/VBox/Divide/Settings/Main/Tabs/Misc/ToggleExit/HBox" index="0"]
+pressed = true
+
+[node name="Label" parent="Bg/VBox/Divide/Settings/Main/Tabs/Misc/ToggleExit/HBox" index="1"]
+margin_right = 831.0
+text = "Exit Game"
 
 [node name="Empty" type="Control" parent="Bg/VBox"]
 margin_top = 419.0
@@ -353,6 +454,10 @@ flat = true
 [connection signal="pressed" from="Bg/VBox/Divide/Buttons/Store" to="." method="_onStore"]
 [connection signal="pressed" from="Bg/VBox/Divide/Buttons/Exit" to="." method="_onExitRequest"]
 [connection signal="confirmed" from="Bg/VBox/Divide/Buttons/Exit/Confirm" to="." method="_onExit"]
+[connection signal="toggled" from="Bg/VBox/Divide/Settings/Main/Tabs/Misc/ToggleLoad/HBox/Button" to="Bg/VBox/Divide/Settings" method="_onLoadToggled"]
+[connection signal="toggled" from="Bg/VBox/Divide/Settings/Main/Tabs/Misc/ToggleAbout/HBox/Button" to="Bg/VBox/Divide/Settings" method="_onAboutToggled"]
+[connection signal="toggled" from="Bg/VBox/Divide/Settings/Main/Tabs/Misc/ToggleMarket/HBox/Button" to="Bg/VBox/Divide/Settings" method="_onMarketToggled"]
+[connection signal="toggled" from="Bg/VBox/Divide/Settings/Main/Tabs/Misc/ToggleExit/HBox/Button" to="Bg/VBox/Divide/Settings" method="_onExtToggled"]
 [connection signal="pressed" from="Bg/VBox/Start" to="." method="_startPressed"]
 
 [editable path="Bg/VBox/Divide/About"]
@@ -362,3 +467,17 @@ flat = true
 [editable path="Bg/VBox/Divide/Market"]
 
 [editable path="Bg/VBox/Divide/Settings"]
+
+[editable path="Bg/VBox/Divide/Settings/Main/Tabs/Audio/VolMaster"]
+
+[editable path="Bg/VBox/Divide/Settings/Main/Tabs/Audio/VolMusic"]
+
+[editable path="Bg/VBox/Divide/Settings/Main/Tabs/Audio/VolFX"]
+
+[editable path="Bg/VBox/Divide/Settings/Main/Tabs/Misc/ToggleLoad"]
+
+[editable path="Bg/VBox/Divide/Settings/Main/Tabs/Misc/ToggleAbout"]
+
+[editable path="Bg/VBox/Divide/Settings/Main/Tabs/Misc/ToggleMarket"]
+
+[editable path="Bg/VBox/Divide/Settings/Main/Tabs/Misc/ToggleExit"]
