@@ -8,10 +8,14 @@ margin_top = 32.0
 margin_right = 1024.0
 margin_bottom = 50.0
 mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="path" type="Label" parent="."]
 margin_right = 22.0
 margin_bottom = 18.0
+size_flags_vertical = 1
 custom_fonts/font = ExtResource( 1 )
 text = " > "
 

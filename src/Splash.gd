@@ -5,14 +5,19 @@ var splashmode = 0
 
 
 func _ready():
-	# connect to timer
+	if GameState.Step > 0:
+		$container/Game/Title2.hide()
+		$container/Game/Title.bbcode_text = "[center]I Promise[/center]"
 	$AnimPlayer.play("GHG_Splash")
 	$AnimPlayer.connect("animation_finished", self, "load_scene")
 
 func load_scene(arg=null):
 	splashmode = 999
-	Input.set_custom_mouse_cursor(GameState.Cursors[Enums.Cursor.Default])
+#	Input.set_custom_mouse_cursor(GameState.Cursors[Enums.Cursor.Default])
 	GameState.LoadScene(next_scene)
+	if GameState.Step == 0:
+		Debugger.CompleteAction()
+		Debugger.get_node("AnimationPlayer").play("PopoutButton")
 
 func _input(event):
 	if splashmode > 100: return

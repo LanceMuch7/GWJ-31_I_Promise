@@ -1,6 +1,7 @@
 extends Node
 
 enum Cursor {
+	Alert,
 	Book,
 	Cancel,
 	Default,
