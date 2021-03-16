@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Images/Sprites/paper.png" type="Texture" id=1]
 [ext_resource path="res://fonts/Verdanna_48.tres" type="DynamicFont" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://src/LabelledPanel.tscn" type="PackedScene" id=11]
 [ext_resource path="res://fonts/VerdannaB_14.tres" type="DynamicFont" id=12]
 [ext_resource path="res://fonts/Verdanna_14.tres" type="DynamicFont" id=13]
+[ext_resource path="res://src/SettingsMenu.gd" type="Script" id=14]
 
 [node name="TitleMenu" type="Control"]
 anchor_right = 1.0
@@ -264,12 +265,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Settings" parent="Bg/VBox/Divide" instance=ExtResource( 11 )]
-visible = false
+script = ExtResource( 14 )
 
 [node name="Title" parent="Bg/VBox/Divide/Settings/Main" index="0"]
 text = "Settings"
 
-[node name="TabContainer" type="TabContainer" parent="Bg/VBox/Divide/Settings/Main" index="2"]
+[node name="Tabs" type="TabContainer" parent="Bg/VBox/Divide/Settings/Main" index="2"]
 margin_top = 43.0
 margin_right = 839.0
 margin_bottom = 336.0
@@ -277,7 +278,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_align = 0
 
-[node name="Gameplay" type="VBoxContainer" parent="Bg/VBox/Divide/Settings/Main/TabContainer"]
+[node name="Gameplay" type="VBoxContainer" parent="Bg/VBox/Divide/Settings/Main/Tabs"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -288,7 +289,7 @@ mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Audio" type="VBoxContainer" parent="Bg/VBox/Divide/Settings/Main/TabContainer"]
+[node name="Audio" type="VBoxContainer" parent="Bg/VBox/Divide/Settings/Main/Tabs"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -300,7 +301,7 @@ mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Display" type="VBoxContainer" parent="Bg/VBox/Divide/Settings/Main/TabContainer"]
+[node name="Display" type="VBoxContainer" parent="Bg/VBox/Divide/Settings/Main/Tabs"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -312,7 +313,7 @@ mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Misc" type="VBoxContainer" parent="Bg/VBox/Divide/Settings/Main/TabContainer"]
+[node name="Misc" type="VBoxContainer" parent="Bg/VBox/Divide/Settings/Main/Tabs"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0

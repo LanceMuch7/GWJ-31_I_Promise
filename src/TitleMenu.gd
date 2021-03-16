@@ -50,6 +50,7 @@ func ShowPanel(panel):
 func _getAngle():
 	return -fmod(offset.length()/10, 360)
 
+
 func _onNewGame():
 	pass # Replace with function body.
 
