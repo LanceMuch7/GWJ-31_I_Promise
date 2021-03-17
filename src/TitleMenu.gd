@@ -48,14 +48,11 @@ func HideAllPanels():
 	$Bg/VBox/Divide/About.hide()
 	$Bg/VBox/Divide/Market.hide()
 	$Bg/VBox/Divide/ExitConfirm.hide()
-	$Oregano.hide()
 
 func ShowPanel(panel):
 	var ena = panel.visible
 	HideAllPanels()
 	panel.visible = not ena
-	if panel == $Bg/VBox/Divide/About and true: #@TODO: replace true with step condition
-		$Oregano.visible = panel.visible
 
 
 func _getAngle():
@@ -73,6 +70,7 @@ func _onSettings():
 
 func _onAbout():
 	ShowPanel($Bg/VBox/Divide/About)
+	$Oregano.visible = true
 
 func _onStore():
 	ShowPanel($Bg/VBox/Divide/Market)
