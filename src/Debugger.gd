@@ -16,10 +16,18 @@ var responses = [
 	[ # part 2
 		"Oh you found it! Huh... no idea how it got all the way over there"
 	],
-	[""],
-	[""],
-	[""],
-	[""],
+	[ # part 3
+		""],
+	[ # part 4
+		"Huh, not sure why I forgot to add a Play button line item",
+		"Here. This will fix it...",
+		"SetUiEnabled Bg/VBox/Divide/Buttons/NewGame true",
+		"Grrr... more errors",
+	],
+	[ # part 5
+		""],
+	[ # part 6
+		""],
 	[""],
 	[""],
 	[""],
@@ -66,6 +74,9 @@ func _setupNext(isPlayer=false):
 		if step == 0:
 			GameState.SetStep(1)
 			_queueTimer()
+		elif step == 4 and RespIdx == 2:
+			RespIdx += 1
+			_queueTimer()
 	else:
 		if step == 0 and RespIdx < responses[step].size()-1:
 			RespIdx += 1
@@ -75,6 +86,12 @@ func _setupNext(isPlayer=false):
 			_queueTimer()
 		elif step == 2:
 			GameState.SetStep(3)
+		elif step == 4 and RespIdx == 0:
+			RespIdx += 1
+			_queueTimer()
+		elif step == 4 and RespIdx == 1:
+			RespIdx += 1
+			_onSubmitted(responses[GameState.Step][RespIdx])
 
 
 func _onToggled():

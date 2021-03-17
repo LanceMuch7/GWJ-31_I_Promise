@@ -1,19 +1,14 @@
 extends PanelContainer
 
-signal ButtonToggled
-
-
-func _ready():
-	pass
-	# @TODO: FIX ALL $ REFERENCES
-	# Initialize option values
-
 
 func _emit(prop, pressed):
-	var btn = get_parent().get_node("Buttons/"+prop)
+	var m = get_node("Main/Tabs/Misc")
+	get_parent().get_node("Buttons/"+prop).disabled = not pressed
 	
-	btn.disabled = not pressed
-#	emit_signal("ButtonToggled", prop, pressed)
+	if GameState.Step == 3:
+		if m.get_node("ToggleAbout/HBox/Button").pressed and m.get_node("ToggleLoad/HBox/Button").pressed and m.get_node("ToggleMarket/HBox/Button").pressed and m.get_node("ToggleExit/HBox/Button").pressed:
+			GameState.SetStep(4)
+			Debugger.CompleteAction()
 
 
 func _onMarketToggled(button_pressed):

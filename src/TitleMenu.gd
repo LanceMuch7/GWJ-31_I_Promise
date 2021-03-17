@@ -13,7 +13,7 @@ func _ready():
 		$Bg/VBox/Start.disabled = false
 		$Bg/VBox/Divide/Buttons/Settings.disabled = false
 		$Bg/VBox/Divide/Buttons/Exit.set_button_mask(BUTTON_MASK_LEFT)
-		if GameState.Step > 5:
+		if GameState.Step > 4:
 			$Bg/VBox/Divide/Buttons/Settings.disabled = false
 
 func _unhandled_key_input(event):
@@ -30,8 +30,16 @@ func _unhandled_key_input(event):
 			else:
 				$Bg.rect_position = offset
 			$Bg.rect_rotation = _getAngle()
-	elif GameState.Step > 2:
+	elif GameState.Step > 3:
 		_startPressed()
+		$Bg/VBox/Divide/Buttons/LoadGame.disabled = false
+		$Bg/VBox/Divide/Buttons/About.disabled = false
+		$Bg/VBox/Divide/Buttons/Store.disabled = false
+		if GameState.Step == 4:
+			GameState.SetStep(5)
+			Debugger.CompleteAction()
+		if GameState.Step > 4:
+			$Bg/VBox/Divide/Buttons/NewGame.disabled = false
 
 
 func HideAllPanels():
@@ -40,11 +48,14 @@ func HideAllPanels():
 	$Bg/VBox/Divide/About.hide()
 	$Bg/VBox/Divide/Market.hide()
 	$Bg/VBox/Divide/ExitConfirm.hide()
+	$Oregano.hide()
 
 func ShowPanel(panel):
 	var ena = panel.visible
 	HideAllPanels()
 	panel.visible = not ena
+	if panel == $Bg/VBox/Divide/About and true: #@TODO: replace true with step condition
+		$Oregano.visible = panel.visible
 
 
 func _getAngle():
@@ -80,3 +91,7 @@ func _startPressed():
 	$Bg/VBox/Start.hide()
 	$Bg/Fade.hide()
 	$Bg/VBox/Divide.show()
+
+
+func _on_Oregano_mouse_entered():
+	pass # Replace with function body.

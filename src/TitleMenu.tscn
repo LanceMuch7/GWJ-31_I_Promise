@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Images/Sprites/paper.png" type="Texture" id=1]
 [ext_resource path="res://fonts/Verdanna_48.tres" type="DynamicFont" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://src/SettingsMenu.gd" type="Script" id=14]
 [ext_resource path="res://src/InputTypes/Slider.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/InputTypes/Switch.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Images/Sprites/pouch.png" type="Texture" id=17]
+[ext_resource path="res://src/Draggable.gd" type="Script" id=18]
 
 [node name="TitleMenu" type="Control"]
 anchor_right = 1.0
@@ -66,6 +68,7 @@ text = "I Promise"
 fit_content_height = true
 
 [node name="Divide" type="HBoxContainer" parent="Bg/VBox"]
+visible = false
 margin_top = 65.0
 margin_right = 1023.0
 margin_bottom = 415.0
@@ -152,6 +155,7 @@ __meta__ = {
 }
 
 [node name="About" parent="Bg/VBox/Divide" instance=ExtResource( 11 )]
+visible = false
 
 [node name="Title" parent="Bg/VBox/Divide/About/Main" index="0"]
 text = "About Me"
@@ -168,13 +172,13 @@ custom_fonts/bold_font = ExtResource( 12 )
 custom_fonts/normal_font = ExtResource( 13 )
 bbcode_enabled = true
 bbcode_text = "[img]Images/Gifthammer_Clear_64.png[/img]
-Thanks for playing [i]I Promise[/i]! I hope you enjoy it, this project took a lot of work to get done on time. 
+Thanks for choosing to play [i]I Promise[/i]! I hope you enjoy it; this project took a lot of work to get done on time. 
 
 I am an independent developer trying to create a variety of games that all feed into a singular story universe: The Humanity Saga. It is a science-fantasy world set in the distant future. I hope you choose to stick around and see what I add to the Saga next!
 
 Growing up, I quickly learned one thing: of something isn't quite right, a stout handful of Oregano will always make it better. It even saved my life once. "
 text = "
-Thanks for playing I Promise! I hope you enjoy it, this project took a lot of work to get done on time. 
+Thanks for choosing to play I Promise! I hope you enjoy it; this project took a lot of work to get done on time. 
 
 I am an independent developer trying to create a variety of games that all feed into a singular story universe: The Humanity Saga. It is a science-fantasy world set in the distant future. I hope you choose to stick around and see what I add to the Saga next!
 
@@ -427,15 +431,15 @@ margin_right = 831.0
 text = "Exit Game"
 
 [node name="Empty" type="Control" parent="Bg/VBox"]
-margin_top = 419.0
+margin_top = 65.0
 margin_right = 1023.0
-margin_bottom = 507.0
+margin_bottom = 330.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Start" type="Button" parent="Bg/VBox"]
-margin_top = 511.0
+margin_top = 334.0
 margin_right = 1023.0
 margin_bottom = 600.0
 focus_mode = 0
@@ -447,6 +451,24 @@ button_mask = 3
 enabled_focus_mode = 0
 text = "[ Press any key to continue ]"
 flat = true
+
+[node name="Oregano" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color( 0.345098, 0.772549, 0.380392, 1 )
+anchor_left = 0.840286
+anchor_top = 0.788396
+anchor_right = 0.840286
+anchor_bottom = 0.788396
+margin_left = 21.5471
+margin_top = -127.038
+margin_right = 53.5471
+margin_bottom = -95.0375
+texture = ExtResource( 17 )
+stretch_mode = 4
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 [connection signal="pressed" from="Bg/VBox/Divide/Buttons/NewGame" to="." method="_onNewGame"]
 [connection signal="pressed" from="Bg/VBox/Divide/Buttons/LoadGame" to="." method="_onLoadGame"]
 [connection signal="pressed" from="Bg/VBox/Divide/Buttons/Settings" to="." method="_onSettings"]
