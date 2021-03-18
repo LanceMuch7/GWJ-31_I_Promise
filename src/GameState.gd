@@ -24,12 +24,13 @@ const Scenes = {
 #	3 = I acknowledge menu
 #	4 = unlocked buttons
 #	5 = play still broken
-#	6 = found Oregano for play button
-#	7 = (first) reboot
-#	8 = 
+#	6 = (first) reboot
+#	7 = Saved Game fails
+#	8 = found Oregano for load button
 #	9 = 
 var Step = 0
 var Player
+var SawCrncyPage = false
 
 
 func _ready():

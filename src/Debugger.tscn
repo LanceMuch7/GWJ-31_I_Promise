@@ -9,7 +9,7 @@
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Hide"
 length = 0.2
 tracks/0/type = "value"
@@ -25,8 +25,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 450 ), Vector2( 0, 600 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "PopoutButton"
+[sub_resource type="Animation" id=4]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("bg/Toggle:rect_position")
@@ -41,8 +40,7 @@ tracks/0/keys = {
 "values": [ Vector2( 926.586, 3.79037 ), Vector2( 928, -45 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Show"
+[sub_resource type="Animation" id=5]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("bg:rect_position")
@@ -120,7 +118,7 @@ __meta__ = {
 [node name="Scroll" type="ScrollContainer" parent="bg/Rows"]
 margin_top = 22.0
 margin_right = 1024.0
-margin_bottom = 149.0
+margin_bottom = 150.0
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -131,7 +129,7 @@ __meta__ = {
 
 [node name="Lines" type="VBoxContainer" parent="bg/Rows/Scroll"]
 margin_right = 1024.0
-margin_bottom = 127.0
+margin_bottom = 128.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -140,9 +138,9 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Hide = SubResource( 5 )
-anims/PopoutButton = SubResource( 3 )
-anims/Show = SubResource( 4 )
+anims/Hide = SubResource( 3 )
+anims/PopoutButton = SubResource( 4 )
+anims/Show = SubResource( 5 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

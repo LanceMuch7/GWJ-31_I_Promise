@@ -35,10 +35,10 @@ func _unhandled_key_input(event):
 		$Bg/VBox/Divide/Buttons/LoadGame.disabled = false
 		$Bg/VBox/Divide/Buttons/About.disabled = false
 		$Bg/VBox/Divide/Buttons/Store.disabled = false
-		if GameState.Step == 4:
-			GameState.SetStep(5)
+		if GameState.Step == 5:
+			GameState.SetStep(6)
 			Debugger.CompleteAction()
-		if GameState.Step > 4:
+		if GameState.Step > 5:
 			$Bg/VBox/Divide/Buttons/NewGame.disabled = false
 
 
@@ -60,7 +60,9 @@ func _getAngle():
 
 
 func _onNewGame():
-	pass # Replace with function body.
+	if GameState.Step == 4:
+		GameState.SetStep(5)
+		Debugger.AddToHistory("", Debugger.TALKER.Error)
 
 func _onLoadGame():
 	ShowPanel($Bg/VBox/Divide/Files)
@@ -89,7 +91,3 @@ func _startPressed():
 	$Bg/VBox/Start.hide()
 	$Bg/Fade.hide()
 	$Bg/VBox/Divide.show()
-
-
-func _on_Oregano_mouse_entered():
-	pass # Replace with function body.

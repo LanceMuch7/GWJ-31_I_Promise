@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Images/Sprites/paper.png" type="Texture" id=1]
 [ext_resource path="res://fonts/Verdanna_48.tres" type="DynamicFont" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://src/InputTypes/Switch.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Images/Sprites/pouch.png" type="Texture" id=17]
 [ext_resource path="res://src/Draggable.gd" type="Script" id=18]
+[ext_resource path="res://src/Market.gd" type="Script" id=19]
 
 [node name="TitleMenu" type="Control"]
 anchor_right = 1.0
@@ -235,6 +236,7 @@ __meta__ = {
 
 [node name="Market" parent="Bg/VBox/Divide" instance=ExtResource( 11 )]
 visible = false
+script = ExtResource( 19 )
 
 [node name="Title" parent="Bg/VBox/Divide/Market/Main" index="0"]
 text = "Marketplace"
@@ -242,23 +244,180 @@ text = "Marketplace"
 [node name="TabContainer" type="TabContainer" parent="Bg/VBox/Divide/Market/Main" index="2"]
 margin_top = 43.0
 margin_right = 839.0
-margin_bottom = 336.0
+margin_bottom = 314.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_align = 0
 
-[node name="Character Skins" type="VBoxContainer" parent="Bg/VBox/Divide/Market/Main/TabContainer"]
+[node name="Character Skins" type="ScrollContainer" parent="Bg/VBox/Divide/Market/Main/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
+
+[node name="Rows" type="VBoxContainer" parent="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins"]
+margin_right = 831.0
+margin_bottom = 424.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Consumables" type="VBoxContainer" parent="Bg/VBox/Divide/Market/Main/TabContainer"]
+[node name="plr" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows"]
+margin_right = 819.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 12 )
+text = "Player"
+align = 1
+
+[node name="Skin" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows"]
+margin_left = 259.0
+margin_top = 22.0
+margin_right = 559.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "Golden Touch"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows/Skin"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "250 Love"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Skin6" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows"]
+margin_left = 259.0
+margin_top = 86.0
+margin_right = 559.0
+margin_bottom = 146.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "Heart Breaker"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows/Skin6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "1300 Love"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Skin3" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows"]
+margin_left = 259.0
+margin_top = 150.0
+margin_right = 559.0
+margin_bottom = 210.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "Nerd"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows/Skin3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "-2 Love"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="char" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows"]
+margin_top = 214.0
+margin_right = 819.0
+margin_bottom = 232.0
+custom_fonts/font = ExtResource( 12 )
+text = "[Character  not found]"
+align = 1
+
+[node name="Skin2" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows"]
+margin_left = 259.0
+margin_top = 236.0
+margin_right = 559.0
+margin_bottom = 296.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "Woodland Elf"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows/Skin2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "700 Love"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Skin4" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows"]
+margin_left = 259.0
+margin_top = 300.0
+margin_right = 559.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "Queen Bee"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows/Skin4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "250 Love"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Skin5" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows"]
+margin_left = 259.0
+margin_top = 364.0
+margin_right = 559.0
+margin_bottom = 424.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "Traditional"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows/Skin5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "120 Love"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Consumables" type="ScrollContainer" parent="Bg/VBox/Divide/Market/Main/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -266,11 +425,176 @@ margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
+
+[node name="Rows" type="VBoxContainer" parent="Bg/VBox/Divide/Market/Main/TabContainer/Consumables"]
+margin_right = 831.0
+margin_bottom = 444.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Currency" type="VBoxContainer" parent="Bg/VBox/Divide/Market/Main/TabContainer"]
+[node name="Oregano" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows"]
+self_modulate = Color( 0.301961, 0.662745, 0.211765, 1 )
+margin_left = 259.0
+margin_right = 559.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "Sprig of Oregano"
+icon = ExtResource( 17 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows/Oregano"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "250 Love"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows"]
+margin_left = 259.0
+margin_top = 64.0
+margin_right = 559.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "[ERR: cannot GET on null!]"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows/Item"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "9999999"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item2" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows"]
+margin_left = 259.0
+margin_top = 128.0
+margin_right = 559.0
+margin_bottom = 188.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "[ERR: cannot GET on null!]"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows/Item2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "9999999"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item3" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows"]
+margin_left = 259.0
+margin_top = 192.0
+margin_right = 559.0
+margin_bottom = 252.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "[ERR: cannot GET on null!]"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows/Item3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "9999999"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item4" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows"]
+margin_left = 259.0
+margin_top = 256.0
+margin_right = 559.0
+margin_bottom = 316.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "[ERR: cannot GET on null!]"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows/Item4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "9999999"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item5" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows"]
+margin_left = 259.0
+margin_top = 320.0
+margin_right = 559.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "[ERR: cannot GET on null!]"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows/Item5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "9999999"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item6" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows"]
+margin_left = 259.0
+margin_top = 384.0
+margin_right = 559.0
+margin_bottom = 444.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "[ERR: cannot GET on null!]"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows/Item6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "9999999"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Currency" type="ScrollContainer" parent="Bg/VBox/Divide/Market/Main/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -278,9 +602,219 @@ margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
+
+[node name="Rows" type="VBoxContainer" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency"]
+margin_right = 831.0
+margin_bottom = 572.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Opt" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows"]
+margin_left = 265.0
+margin_right = 565.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "1 Love Point"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows/Opt"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "$ 1.99"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opt2" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows"]
+margin_left = 265.0
+margin_right = 565.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "5 Love Points"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows/Opt2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "$ 3.99"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opt3" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows"]
+margin_left = 265.0
+margin_right = 565.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "10 Love Points"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows/Opt3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "$ 4.99"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opt4" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows"]
+margin_left = 265.0
+margin_right = 565.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "50 Love Points"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows/Opt4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "$ 9.99"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opt5" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows"]
+margin_left = 265.0
+margin_right = 565.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "100 Love Points"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows/Opt5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "$ 12.99"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opt6" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows"]
+margin_left = 265.0
+margin_right = 565.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "300 Love Points"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows/Opt6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "$ 20.99"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opt7" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows"]
+margin_left = 265.0
+margin_right = 565.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "1000 Love Points"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows/Opt7"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "$ 49.99"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opt8" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows"]
+margin_left = 265.0
+margin_right = 565.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "2000 Love Points"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows/Opt8"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "$ 149.99"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opt9" type="Button" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows"]
+margin_left = 265.0
+margin_right = 565.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 13 )
+text = "2500 Love Points"
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Cost" type="Label" parent="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows/Opt9"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 10 )
+text = "$ 1279.99"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Bg/VBox/Divide/Market/Main" index="3"]
+margin_top = 318.0
+margin_right = 839.0
+margin_bottom = 336.0
+custom_fonts/font = ExtResource( 12 )
+text = "Love Points:  0"
+align = 2
 
 [node name="Settings" parent="Bg/VBox/Divide" instance=ExtResource( 11 )]
 visible = false
@@ -476,6 +1010,28 @@ __meta__ = {
 [connection signal="pressed" from="Bg/VBox/Divide/Buttons/Store" to="." method="_onStore"]
 [connection signal="pressed" from="Bg/VBox/Divide/Buttons/Exit" to="." method="_onExitRequest"]
 [connection signal="confirmed" from="Bg/VBox/Divide/Buttons/Exit/Confirm" to="." method="_onExit"]
+[connection signal="tab_changed" from="Bg/VBox/Divide/Market/Main/TabContainer" to="Bg/VBox/Divide/Market" method="_on_Currency_Seen"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows/Skin" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows/Skin6" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows/Skin3" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows/Skin2" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows/Skin4" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows/Skin5" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows/Item" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows/Item2" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows/Item3" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows/Item4" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows/Item5" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Consumables/Rows/Item6" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows/Opt" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows/Opt2" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows/Opt3" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows/Opt4" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows/Opt5" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows/Opt6" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows/Opt7" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows/Opt8" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
+[connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Currency/Rows/Opt9" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
 [connection signal="toggled" from="Bg/VBox/Divide/Settings/Main/Tabs/Misc/ToggleLoad/HBox/Button" to="Bg/VBox/Divide/Settings" method="_onLoadToggled"]
 [connection signal="toggled" from="Bg/VBox/Divide/Settings/Main/Tabs/Misc/ToggleAbout/HBox/Button" to="Bg/VBox/Divide/Settings" method="_onAboutToggled"]
 [connection signal="toggled" from="Bg/VBox/Divide/Settings/Main/Tabs/Misc/ToggleMarket/HBox/Button" to="Bg/VBox/Divide/Settings" method="_onMarketToggled"]

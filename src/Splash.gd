@@ -8,8 +8,12 @@ func _ready():
 	if GameState.Step > 0:
 		$container/Game/Title2.hide()
 		$container/Game/Title.bbcode_text = "[center]I Promise[/center]"
-	$AnimPlayer.play("GHG_Splash")
-	$AnimPlayer.connect("animation_finished", self, "load_scene")
+	if GameState.Step < 10:
+		$AnimPlayer.play("GHG_Splash")
+		$AnimPlayer.connect("animation_finished", self, "load_scene")
+	else:
+		# Tell the player a story
+		pass
 
 func load_scene(arg=null):
 	splashmode = 999
