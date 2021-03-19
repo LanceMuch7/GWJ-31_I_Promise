@@ -48,12 +48,17 @@ var responses = [
 		"I've got one sure fire way left. I accidently left my old save file from my testing when I published the game. Check the LOAD screen in a sec."
 	],
 	[ # part 7
-		""
+		"I... I give up...",
+		"No! I shouldn't do that yet, just give me some time to figure out a way around this.",
+		"Feel free to keep poking around yourself. Maybe you'll find something that I missed again."
 	],
 	[ # part 8
-		""],
+		"Oh! you--wait. What? How does that even make--",
+		"I really should have listened to Grandma more often... Anyways, enjoy!"
+	],
 	[ # part 9
-		""],
+		""
+	],
 	[ # part 10
 		""]
 ]
@@ -121,14 +126,17 @@ func _setupNext(talker=TALKER.GH):
 			elif step == 4 and (RespIdx == 1 or RespIdx == 3):
 				RespIdx += 1
 				_onSubmitted(responses[GameState.Step][RespIdx])
-			elif step == 5 and RespIdx < responses[step].size()-1:
+			elif step >= 5 and step <= 7 and RespIdx < responses[step].size()-1:
 				RespIdx += 1
 				_queueTimer()
 			elif step == 6 and RespIdx < responses[step].size()-1:
 				RespIdx += 1
 				_queueTimer()
+				get_tree().current_scene.EnableSaveFile()
 		TALKER.Error:
 			if step == 5 and RespIdx == 0:
+				_queueTimer()
+			elif step == 6 and RespIdx == 0:
 				_queueTimer()
 		TALKER.Console:
 			if step == 9999:

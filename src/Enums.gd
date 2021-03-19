@@ -19,4 +19,5 @@ enum Cursor {
 enum scene {
 	Splash,
 	Title,
+	Lv1
 }

@@ -1,8 +1,7 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Images/Sprites/paper.png" type="Texture" id=1]
 [ext_resource path="res://fonts/Verdanna_48.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Images/Sprites/battle.png" type="Texture" id=3]
 [ext_resource path="res://Images/Sprites/clock.png" type="Texture" id=4]
 [ext_resource path="res://Images/Sprites/shop.png" type="Texture" id=5]
 [ext_resource path="res://Images/Sprites/door.png" type="Texture" id=6]
@@ -91,7 +90,6 @@ rect_min_size = Vector2( 150, 50 )
 size_flags_horizontal = 3
 disabled = true
 text = "NEW GAME"
-icon = ExtResource( 3 )
 
 [node name="LoadGame" type="Button" parent="Bg/VBox/Divide/Buttons"]
 margin_top = 60.0
@@ -1010,6 +1008,7 @@ __meta__ = {
 [connection signal="pressed" from="Bg/VBox/Divide/Buttons/Store" to="." method="_onStore"]
 [connection signal="pressed" from="Bg/VBox/Divide/Buttons/Exit" to="." method="_onExitRequest"]
 [connection signal="confirmed" from="Bg/VBox/Divide/Buttons/Exit/Confirm" to="." method="_onExit"]
+[connection signal="pressed" from="Bg/VBox/Divide/Files/Main/Button" to="." method="_onSavedGamePressed"]
 [connection signal="tab_changed" from="Bg/VBox/Divide/Market/Main/TabContainer" to="Bg/VBox/Divide/Market" method="_on_Currency_Seen"]
 [connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows/Skin" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]
 [connection signal="pressed" from="Bg/VBox/Divide/Market/Main/TabContainer/Character Skins/Rows/Skin6" to="Bg/VBox/Divide/Market" method="_onButtonPressed"]

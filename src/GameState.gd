@@ -15,6 +15,7 @@ const Cursors = {
 const Scenes = {
 	Enums.scene.Splash: preload("res://src/Splash.tscn"),
 	Enums.scene.Title: preload("res://src/TitleMenu.tscn"),
+	Enums.scene.Lv1: preload("res://src/TitleMenu.tscn")
 }
 
 # Using an int because godot can't increment an enum
@@ -27,10 +28,16 @@ const Scenes = {
 #	6 = (first) reboot
 #	7 = Saved Game fails
 #	8 = found Oregano for load button
-#	9 = 
+#	9 = Game causes boot loop
 var Step = 0
 var Player
 var SawCrncyPage = false
+var ShowSave = false
+var SettMrkt = false
+var SettAbt = false
+var SettExit = true
+var SettLoad = false
+var Settings = false
 
 
 func _ready():

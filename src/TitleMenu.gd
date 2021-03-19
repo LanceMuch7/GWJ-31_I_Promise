@@ -6,15 +6,17 @@ var redux = 150
 
 
 func _ready():
+	if GameState.ShowSave:
+		EnableSaveFile()
 	if GameState.Step == 0:
 		$Bg.rect_position = offset
 		$Bg.rect_rotation = _getAngle()
 	else:
 		$Bg/VBox/Start.disabled = false
-		$Bg/VBox/Divide/Buttons/Settings.disabled = false
+		$Bg/VBox/Divide/Buttons/Settings.disabled = not GameState.Settings
 		$Bg/VBox/Divide/Buttons/Exit.set_button_mask(BUTTON_MASK_LEFT)
 		if GameState.Step > 4:
-			$Bg/VBox/Divide/Buttons/Settings.disabled = false
+			$Bg/VBox/Divide/Buttons/NewGame.disabled = false
 
 func _unhandled_key_input(event):
 	if GameState.Step < 2:
@@ -30,17 +32,13 @@ func _unhandled_key_input(event):
 			else:
 				$Bg.rect_position = offset
 			$Bg.rect_rotation = _getAngle()
-	elif GameState.Step > 3:
+	elif GameState.Step > 2:
 		_startPressed()
-		$Bg/VBox/Divide/Buttons/LoadGame.disabled = false
-		$Bg/VBox/Divide/Buttons/About.disabled = false
-		$Bg/VBox/Divide/Buttons/Store.disabled = false
-		if GameState.Step == 5:
-			GameState.SetStep(6)
-			Debugger.CompleteAction()
-		if GameState.Step > 5:
-			$Bg/VBox/Divide/Buttons/NewGame.disabled = false
 
+
+func EnableSaveFile():
+	GameState.ShowSave = true
+	$Bg/VBox/Divide/Files/Main/Button.show()
 
 func HideAllPanels():
 	$Bg/VBox/Divide/Files.hide()
@@ -62,7 +60,12 @@ func _getAngle():
 func _onNewGame():
 	if GameState.Step == 4:
 		GameState.SetStep(5)
-		Debugger.AddToHistory("", Debugger.TALKER.Error)
+	elif GameState.Step == 5:
+		GameState.SetStep(6)
+	elif GameState.Step == 8:
+		GameState.LoadScene(Enums.scene.Lv1)
+	if GameState.Step > 3 and GameState.Step < 8:
+		Debugger.AddToHistory(" Missing resource file button_icon.png!", Debugger.TALKER.Error)
 
 func _onLoadGame():
 	ShowPanel($Bg/VBox/Divide/Files)
@@ -81,6 +84,7 @@ func _onExitRequest():
 	if $Bg/VBox/Divide/Buttons/Exit.button_mask == 2:
 		$Bg/VBox/Divide/Buttons/Exit.button_mask = BUTTON_MASK_LEFT
 		$Bg/VBox/Divide/Buttons/Settings.disabled = false
+		GameState.Settings = true
 	else:
 		$Bg/VBox/Divide/Buttons/Exit/Confirm.popup_centered()
 
@@ -88,6 +92,12 @@ func _onExit():
 	GameState.LoadScene(Enums.scene.Splash)
 
 func _startPressed():
+	$Bg/VBox/Divide/Settings.Initialize()
 	$Bg/VBox/Start.hide()
 	$Bg/Fade.hide()
 	$Bg/VBox/Divide.show()
+
+func _onSavedGamePressed():
+	if GameState.Step == 6:
+		GameState.SetStep(7)
+		Debugger.CompleteAction()
