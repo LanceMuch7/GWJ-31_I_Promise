@@ -12,11 +12,14 @@ func _ready():
 		$Bg.rect_position = offset
 		$Bg.rect_rotation = _getAngle()
 	else:
+		$Bg/VBox/Divide/Files/Main/Button.visible = GameState.ShowSave
 		$Bg/VBox/Start.disabled = false
 		$Bg/VBox/Divide/Buttons/Settings.disabled = not GameState.Settings
 		$Bg/VBox/Divide/Buttons/Exit.set_button_mask(BUTTON_MASK_LEFT)
 		if GameState.Step > 4:
 			$Bg/VBox/Divide/Buttons/NewGame.disabled = false
+	if GameState.PlayFixed:
+		$Bg/VBox/Divide/Buttons/NewGame.icon = $Oregano.texture
 
 func _unhandled_key_input(event):
 	if GameState.Step < 2:
@@ -64,6 +67,7 @@ func _onNewGame():
 		GameState.SetStep(6)
 	elif GameState.Step == 8:
 		GameState.LoadScene(Enums.scene.Lv1)
+	
 	if GameState.Step > 3 and GameState.Step < 8:
 		Debugger.AddToHistory(" Missing resource file button_icon.png!", Debugger.TALKER.Error)
 
@@ -75,7 +79,8 @@ func _onSettings():
 
 func _onAbout():
 	ShowPanel($Bg/VBox/Divide/About)
-	$Oregano.visible = true
+	if GameState.Step < 8:
+		$Oregano.visible = true
 
 func _onStore():
 	ShowPanel($Bg/VBox/Divide/Market)

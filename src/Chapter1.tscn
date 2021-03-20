@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Images/Garden.png" type="Texture" id=1]
+[ext_resource path="res://src/Cutscene.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Chapter1.gd" type="Script" id=3]
+
+[node name="Chapter1" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -20.1298, 0 )
+scale = Vector2( 0.555794, 0.555794 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="plr" type="Node" parent="."]
+
+[node name="Cutscene" parent="plr" instance=ExtResource( 2 )]
+[connection signal="animation_finished" from="plr/Cutscene/Anim" to="." method="_on_Anim_finished"]
+
+[editable path="plr/Cutscene"]

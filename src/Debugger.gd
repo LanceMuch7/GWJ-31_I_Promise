@@ -129,9 +129,7 @@ func _setupNext(talker=TALKER.GH):
 			elif step >= 5 and step <= 7 and RespIdx < responses[step].size()-1:
 				RespIdx += 1
 				_queueTimer()
-			elif step == 6 and RespIdx < responses[step].size()-1:
-				RespIdx += 1
-				_queueTimer()
+			elif step == 6 and RespIdx == 2:
 				get_tree().current_scene.EnableSaveFile()
 		TALKER.Error:
 			if step == 5 and RespIdx == 0:

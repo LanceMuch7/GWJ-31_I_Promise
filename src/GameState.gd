@@ -15,7 +15,7 @@ const Cursors = {
 const Scenes = {
 	Enums.scene.Splash: preload("res://src/Splash.tscn"),
 	Enums.scene.Title: preload("res://src/TitleMenu.tscn"),
-	Enums.scene.Lv1: preload("res://src/TitleMenu.tscn")
+	Enums.scene.Lv1: preload("res://src/Chapter1.tscn")
 }
 
 # Using an int because godot can't increment an enum
@@ -38,6 +38,7 @@ var SettAbt = false
 var SettExit = true
 var SettLoad = false
 var Settings = false
+var PlayFixed = false
 
 
 func _ready():
