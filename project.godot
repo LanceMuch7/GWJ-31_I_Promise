@@ -17,9 +17,9 @@ _global_script_class_icons={
 
 config/name="GWJ31 I Promise"
 run/main_scene="res://src/Splash.tscn"
-boot_splash/image="res://Images/Sprites/paper.png"
+boot_splash/image="res://Images/Sprites/notfound.png"
 boot_splash/fullsize=false
-config/icon="res://Images/Sprites/paper.png"
+config/icon="res://Images/Sprites/notfound.png"
 
 [autoload]
 
