@@ -1,8 +1,8 @@
 extends Control
 
-
-var offset = Vector2(1000, -900)
-var redux = 150
+var offset = Vector2(960, -585)
+var redux = 100
+var deb = 0.0
 
 
 func _ready():
@@ -24,19 +24,25 @@ func _ready():
 func _unhandled_key_input(event):
 	if GameState.Step < 2:
 		if not event is InputEventMouseMotion and event.is_pressed():
+			if deb > 0: return
+			deb += 0.3
+			var old = offset
 			offset.x = clamp(offset.x - redux, 0, offset.x)
-			offset.y = clamp(offset.y + redux, 0, offset.y)
+			offset.y = clamp(offset.y + 0.6*redux, offset.y, 0)
 			if offset.distance_to(Vector2.ZERO) < 10:
 				offset = Vector2.ZERO
-				$Bg.rect_position = offset
 				GameState.SetStep(2)
 				$Bg/VBox/Start.disabled = false
 				Debugger.CompleteAction()
-			else:
-				$Bg.rect_position = offset
+			$Bg/Tween.interpolate_property($Bg, "rect_position", old, offset, 0.3, Tween.TRANS_BOUNCE, Tween.EASE_IN_OUT)
 			$Bg.rect_rotation = _getAngle()
+			$Bg/Tween.start()
 	elif GameState.Step > 2:
 		_startPressed()
+
+func _process(delta):
+	if deb > 0:
+		deb -= delta
 
 
 func EnableSaveFile():
@@ -57,7 +63,7 @@ func ShowPanel(panel):
 
 
 func _getAngle():
-	return -fmod(offset.length()/10, 360)
+	return -fmod(offset.length()/100, 360)
 
 
 func _onNewGame():
