@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Images/Garden.png" type="Texture" id=1]
 [ext_resource path="res://src/Cutscene.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Chapter1.gd" type="Script" id=3]
+[ext_resource path="res://Images/Sprites/notfound.png" type="Texture" id=4]
 
 [node name="Chapter1" type="Node2D"]
 script = ExtResource( 3 )
@@ -13,9 +14,78 @@ scale = Vector2( 0.555794, 0.555794 )
 texture = ExtResource( 1 )
 centered = false
 
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="dne" type="Sprite" parent="Node2D"]
+position = Vector2( 135, 404 )
+texture = ExtResource( 4 )
+
+[node name="dne2" type="Sprite" parent="Node2D"]
+position = Vector2( 499, 342 )
+texture = ExtResource( 4 )
+
+[node name="dne3" type="Sprite" parent="Node2D"]
+position = Vector2( 231, 84 )
+texture = ExtResource( 4 )
+
+[node name="dne4" type="Sprite" parent="Node2D"]
+position = Vector2( 56, 58 )
+texture = ExtResource( 4 )
+
+[node name="dne5" type="Sprite" parent="Node2D"]
+position = Vector2( 12, 95 )
+texture = ExtResource( 4 )
+
+[node name="dne6" type="Sprite" parent="Node2D"]
+position = Vector2( 118, 19 )
+texture = ExtResource( 4 )
+
+[node name="dne7" type="Sprite" parent="Node2D"]
+position = Vector2( 992, 60 )
+texture = ExtResource( 4 )
+
+[node name="dne8" type="Sprite" parent="Node2D"]
+position = Vector2( 1040, 42 )
+texture = ExtResource( 4 )
+
+[node name="dne9" type="Sprite" parent="Node2D"]
+position = Vector2( 1030, 141 )
+texture = ExtResource( 4 )
+
+[node name="dne10" type="Sprite" parent="Node2D"]
+position = Vector2( 690, 223 )
+texture = ExtResource( 4 )
+
+[node name="dne11" type="Sprite" parent="Node2D"]
+position = Vector2( 546, 227 )
+texture = ExtResource( 4 )
+
+[node name="dne12" type="Sprite" parent="Node2D"]
+position = Vector2( 382, 230 )
+texture = ExtResource( 4 )
+
+[node name="dne13" type="Sprite" parent="Node2D"]
+position = Vector2( 110, 218 )
+texture = ExtResource( 4 )
+
+[node name="dne14" type="Sprite" parent="Node2D"]
+position = Vector2( 475, 95 )
+texture = ExtResource( 4 )
+
 [node name="plr" type="Node" parent="."]
 
 [node name="Cutscene" parent="plr" instance=ExtResource( 2 )]
+
+[node name="Fade" parent="plr/Cutscene" index="0"]
+color = Color( 0, 0, 0, 0.133333 )
+
+[node name="Top" parent="plr/Cutscene" index="1"]
+margin_top = -47.3812
+margin_bottom = 102.619
+
+[node name="Bott" parent="plr/Cutscene" index="2"]
+margin_top = -102.619
+margin_bottom = 47.3815
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1

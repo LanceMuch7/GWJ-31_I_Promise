@@ -26,6 +26,7 @@ func _onGUI(event:InputEvent):
 			get_parent().get_node("Bg/VBox/Divide/Buttons/NewGame").icon = texture
 			GameState.PlayFixed = true
 			GameState.SetStep(8)
+			Debugger.CompleteAction()
 			hide()
 	elif slctd and event is InputEventMouseMotion:
 		rect_global_position = get_tree().current_scene.get_global_mouse_position() - rect_size/2

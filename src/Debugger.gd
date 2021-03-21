@@ -31,7 +31,8 @@ var responses = [
 		"Oh you found it! Huh... no idea how it got all the way over there"
 	],
 	[ # part 3
-		"Hm... Now what's wrong with my menu buttons?--wait, where's the BACKGROUND?"],
+		"Wait what's wrong with my menu buttons!?"
+	],
 	[ # part 4
 		"Huh, not sure why I forgot to add a Play button line item",
 		"Here. This will fix it...",
@@ -57,10 +58,15 @@ var responses = [
 		"I really should have listened to Grandma more often... Anyways, enjoy!"
 	],
 	[ # part 9
-		""
+		"A boot-loop? Really? Ughhhh why now?",
+		"...I don't think there's any way to recover from this",
+		"Well, thanks for trying to play anyways. I really appreciate it, and sorry it was so awful",
+		"Hey you know what, since this has been such a disaster, why don't I tell you a story instead? We still have this loading screen, and I bet I can whip up a drawing to go with it",
+		"What do you say? I understand if you want to quit and leave this dumpster fire behind..."
 	],
 	[ # part 10
-		""]
+		"Great! Ok give me a moment to think..."
+	]
 ]
 var RespIdx = 0
 onready var history = $bg/Rows/Scroll/Lines
@@ -126,7 +132,7 @@ func _setupNext(talker=TALKER.GH):
 			elif step == 4 and (RespIdx == 1 or RespIdx == 3):
 				RespIdx += 1
 				_onSubmitted(responses[GameState.Step][RespIdx])
-			elif step >= 5 and step <= 7 and RespIdx < responses[step].size()-1:
+			elif step >= 5 and step <= 9 and RespIdx < responses[step].size()-1:
 				RespIdx += 1
 				_queueTimer()
 			elif step == 6 and RespIdx == 2:
@@ -180,6 +186,11 @@ func _onToggled():
 
 func _onSubmitted(new_text, cmd=true):
 	AddToHistory(new_text, TALKER.Player)
+	if GameState.Step == 9:
+		var low = new_text.to_lower()
+		if low.find("yes") >= 0 or low.find("sure") >= 0 or low.find("ok") >= 0:
+			GameState.SetStep(10)
+			CompleteAction()
 	if cmd:
 		_parseCmd(new_text)
 

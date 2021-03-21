@@ -29,6 +29,7 @@ const Scenes = {
 #	7 = Saved Game fails
 #	8 = found Oregano for load button
 #	9 = Game causes boot loop
+#	10 = Player sticks around for story
 var Step = 0
 var Player
 var SawCrncyPage = false

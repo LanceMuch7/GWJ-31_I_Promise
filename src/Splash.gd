@@ -9,7 +9,7 @@ func _ready():
 		$container/Game/Title2.hide()
 		$container/Game/Title.bbcode_text = "[center]I Promise[/center]"
 	
-	if GameState.Step < 10:
+	if GameState.Step < 11:
 		$AnimPlayer.play("GHG_Splash")
 	else:
 		# Tell the player a story
@@ -35,4 +35,7 @@ func _on_AnimPlayer_animation_finished(anim_name):
 		"GWJ_Splash":
 			$AnimPlayer.play("Game_Splash")
 		"Game_Splash":
-			load_scene()
+			if GameState.Step < 9:
+				load_scene()
+			else:
+				$AnimPlayer.play("GHG_Splash")
